@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/solid/diamond_block.png" type="Texture" id=1]
+[ext_resource path="res://Solid_Diamond.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 64 )
+
+[node name="Solid_Diamond" type="RigidBody2D"]
+collision_layer = 7
+collision_mask = 3
+mass = 100.0
+gravity_scale = 5.0
+linear_damp = 35.0
+angular_damp = 0.0
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )

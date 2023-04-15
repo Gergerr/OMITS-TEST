@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://googleforms.gd" type="Script" id=1]
+
+[node name="HTTPRequest" type="HTTPRequest"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ButtonFinish" type="Button" parent="Control"]
+margin_left = 448.0
+margin_top = 456.0
+margin_right = 576.0
+margin_bottom = 488.0
+text = "SUBMIT JAWABAN"
+
+[connection signal="pressed" from="Control/ButtonFinish" to="." method="_on_ButtonFinish_pressed"]

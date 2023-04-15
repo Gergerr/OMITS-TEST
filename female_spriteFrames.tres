@@ -1,0 +1,43 @@
+[gd_resource type="SpriteFrames" load_steps=14 format=2]
+
+[ext_resource path="res://assets/male/walk0.png" type="Texture" id=1]
+[ext_resource path="res://assets/male/walk4.png" type="Texture" id=2]
+[ext_resource path="res://assets/male/walk5.png" type="Texture" id=3]
+[ext_resource path="res://assets/male/climb0.png" type="Texture" id=4]
+[ext_resource path="res://assets/male/climb1.png" type="Texture" id=5]
+[ext_resource path="res://assets/male/duck.png" type="Texture" id=6]
+[ext_resource path="res://assets/male/idle.png" type="Texture" id=7]
+[ext_resource path="res://assets/male/walk2.png" type="Texture" id=8]
+[ext_resource path="res://assets/male/walk7.png" type="Texture" id=9]
+[ext_resource path="res://assets/male/walk6.png" type="Texture" id=10]
+[ext_resource path="res://assets/male/walk1.png" type="Texture" id=11]
+[ext_resource path="res://assets/male/walk3.png" type="Texture" id=12]
+[ext_resource path="res://assets/male/jump.png" type="Texture" id=13]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "crouch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "climb",
+"speed": 5.0
+} ]

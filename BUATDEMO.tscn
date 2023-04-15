@@ -1,0 +1,252 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Block1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DoorDummy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://platform_person.tscn" type="PackedScene" id=4]
+[ext_resource path="res://platform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Door_Horizontal_Right.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://MovingPlatform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Door_Horizontal.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Player1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Mult.tscn" type="PackedScene" id=12]
+[ext_resource path="res://NextLevel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Birch.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Obsidian.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Diamond.tscn" type="PackedScene" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 368, 10 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 312 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Loop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.999998 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "PingPong"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.99 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -328 )
+}
+
+[node name="BUATDEMO" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -655360, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -655356, 0, 0, -655355, 0, 0, -655354, 0, 0, -655353, 0, 0, -655352, 0, 0, -655351, 0, 0, -655350, 0, 0, -655349, 0, 0, -655348, 0, 0, -655347, 0, 0, -655346, 0, 0, -655345, 0, 0, -655344, 0, 0, -655343, 0, 0, -655342, 0, 0, -655341, 0, 0, -655340, 0, 0, -655339, 0, 0, -655338, 0, 0, -655337, 0, 0, -655336, 0, 0, -655335, 0, 0, -589824, 0, 0, -589799, 0, 0, -524288, 0, 0, -524263, 0, 0, -458752, 0, 0, -458734, 0, 0, -458733, 0, 0, -458732, 0, 0, -458731, 0, 0, -458730, 0, 0, -458729, 0, 0, -458728, 0, 0, -458727, 0, 0, -458726, 0, 0, -458725, 0, 0, -458724, 0, 0, -458723, 0, 0, -458722, 0, 0, -458721, 0, 0, -458720, 0, 0, -458719, 0, 0, -458718, 0, 0, -458717, 0, 0, -458716, 0, 0, -458715, 0, 0, -458714, 0, 0, -458713, 0, 0, -458712, 0, 0, -458711, 0, 0, -458710, 0, 0, -458709, 0, 0, -458708, 0, 0, -458707, 0, 0, -458706, 0, 0, -458705, 0, 0, -458704, 0, 0, -458703, 0, 0, -458702, 0, 0, -458701, 0, 0, -458700, 0, 0, -458699, 0, 0, -458698, 0, 0, -458697, 0, 0, -458696, 0, 0, -458695, 0, 0, -458694, 0, 0, -458693, 0, 0, -458692, 0, 0, -458691, 0, 0, -458690, 0, 0, -458689, 0, 0, -458688, 0, 0, -458687, 0, 0, -458686, 0, 0, -458685, 0, 0, -458684, 0, 0, -458683, 0, 0, -458682, 0, 0, -458681, 0, 0, -458680, 0, 0, -458679, 0, 0, -458678, 0, 0, -393216, 0, 0, -393198, 0, 0, -393142, 0, 0, -327680, 0, 0, -327662, 0, 0, -327606, 0, 0, -262144, 0, 0, -262126, 0, 0, -262070, 0, 0, -196608, 0, 0, -196590, 0, 0, -196534, 0, 0, -131072, 0, 0, -131054, 0, 0, -130998, 0, 0, -65536, 0, 0, -65518, 0, 0, -65462, 0, 0, 0, 0, 0, 18, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 74, 0, 0, 65536, 0, 0, 65554, 0, 0, 65558, 0, 0, 65561, 0, 0, 65571, 0, 0, 65572, 0, 0, 65576, 0, 0, 65577, 0, 0, 65578, 0, 0, 65579, 0, 0, 65580, 0, 0, 65581, 0, 0, 65582, 0, 0, 65583, 0, 0, 65584, 0, 0, 65585, 0, 0, 65586, 0, 0, 65587, 0, 0, 65588, 0, 0, 65589, 0, 0, 65590, 0, 0, 65591, 0, 0, 65592, 0, 0, 65593, 0, 0, 65594, 0, 0, 65595, 0, 0, 65596, 0, 0, 65597, 0, 0, 65598, 0, 0, 65599, 0, 0, 65600, 0, 0, 65601, 0, 0, 65605, 0, 0, 65606, 0, 0, 65607, 0, 0, 65608, 0, 0, 65609, 0, 0, 65610, 0, 0, 65611, 0, 0, 65612, 0, 0, 65613, 0, 0, 65614, 0, 0, 131072, 0, 0, 131090, 0, 0, 131094, 0, 0, 131097, 0, 0, 131107, 0, 0, 131108, 0, 0, 131109, 0, 0, 131137, 0, 0, 131138, 0, 0, 131150, 0, 0, 131151, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196630, 0, 0, 196633, 0, 0, 196643, 0, 0, 196644, 0, 0, 196645, 0, 0, 196646, 0, 0, 196673, 0, 0, 196675, 0, 0, 196687, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262166, 0, 0, 262169, 0, 0, 262179, 0, 0, 262180, 0, 0, 262181, 0, 0, 262182, 0, 0, 262183, 0, 0, 262209, 0, 0, 262212, 0, 0, 262223, 0, 0, 327680, 0, 0, 327698, 0, 0, 327702, 0, 0, 327705, 0, 0, 327718, 0, 0, 327719, 0, 0, 327720, 0, 0, 327721, 0, 0, 327722, 0, 0, 327723, 0, 0, 327745, 0, 0, 327749, 0, 0, 327759, 0, 0, 393216, 0, 0, 393238, 0, 0, 393241, 0, 0, 393254, 0, 0, 393255, 0, 0, 393256, 0, 0, 393260, 0, 0, 393261, 0, 0, 393281, 0, 0, 393286, 0, 0, 393295, 0, 0, 458752, 0, 0, 458774, 0, 0, 458777, 0, 0, 458790, 0, 0, 458791, 0, 0, 458792, 0, 0, 458798, 0, 0, 458799, 0, 0, 458817, 0, 0, 458823, 0, 0, 458824, 0, 0, 458825, 0, 0, 458826, 0, 0, 458827, 0, 0, 458828, 0, 0, 458829, 0, 0, 458830, 0, 0, 458831, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 524336, 0, 0, 524353, 0, 0, 589873, 0, 0, 589874, 0, 0, 589875, 0, 0, 589876, 0, 0, 589877, 0, 0, 589878, 0, 0, 589879, 0, 0, 589880, 0, 0, 589881, 0, 0, 589882, 0, 0, 589883, 0, 0, 589884, 0, 0, 589885, 0, 0, 589886, 0, 0, 589887, 0, 0, 589888, 0, 0, 589889, 0, 0 )
+
+[node name="PlatformBox" type="Node2D" parent="."]
+
+[node name="Platform1" parent="PlatformBox" instance=ExtResource( 5 )]
+position = Vector2( 800, 544 )
+
+[node name="DoorStatic" parent="PlatformBox" instance=ExtResource( 3 )]
+position = Vector2( 928, 416 )
+
+[node name="platformplayer" type="Node2D" parent="."]
+
+[node name="Platform" parent="platformplayer" instance=ExtResource( 4 )]
+position = Vector2( 288, 544 )
+
+[node name="DoorStatic" parent="platformplayer" instance=ExtResource( 3 )]
+position = Vector2( 416, 416 )
+
+[node name="HorizontalDoor" type="Node2D" parent="."]
+
+[node name="Platform1" parent="HorizontalDoor" instance=ExtResource( 5 )]
+position = Vector2( 1184, 544 )
+
+[node name="Door_Horizontal" parent="HorizontalDoor" instance=ExtResource( 10 )]
+position = Vector2( 1248, 352 )
+
+[node name="Door_Horizontal2" parent="HorizontalDoor" instance=ExtResource( 10 )]
+position = Vector2( 1248, 96 )
+
+[node name="Door_Horizontal_Right" parent="HorizontalDoor" instance=ExtResource( 6 )]
+position = Vector2( 1376, 480 )
+
+[node name="Door_Horizontal_Right2" parent="HorizontalDoor" instance=ExtResource( 6 )]
+position = Vector2( 1376, 224 )
+
+[node name="Player1" parent="." instance=ExtResource( 11 )]
+position = Vector2( 120, 448 )
+collision_layer = 5
+
+[node name="Player2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 200, 449 )
+
+[node name="Block1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 544, 480 )
+
+[node name="Block2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1056, 480 )
+
+[node name="fallzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fallzone"]
+position = Vector2( 2040, 488 )
+shape = SubResource( 1 )
+
+[node name="Fire" type="Node2D" parent="."]
+
+[node name="Fire" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 1696, 480 )
+
+[node name="Fire2" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 1760, 480 )
+
+[node name="Fire3" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 1824, 480 )
+
+[node name="Fire4" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 1888, 480 )
+
+[node name="Fire5" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 1952, 480 )
+
+[node name="Fire6" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 2016, 480 )
+
+[node name="Fire7" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 2080, 480 )
+
+[node name="Fire8" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 2144, 480 )
+
+[node name="Fire9" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 2208, 480 )
+
+[node name="Fire10" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 2272, 480 )
+
+[node name="Fire11" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 2336, 480 )
+
+[node name="Fire12" parent="Fire" instance=ExtResource( 7 )]
+position = Vector2( 2400, 480 )
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1744, 8 )
+
+[node name="Path2D" parent="MovingPlatform" index="1"]
+curve = SubResource( 2 )
+
+[node name="AnimationPlayer" parent="MovingPlatform" index="2"]
+playback_speed = 0.5
+
+[node name="MovingPlatform2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2112, 8 )
+
+[node name="Path2D" parent="MovingPlatform2" index="1"]
+curve = SubResource( 2 )
+
+[node name="AnimationPlayer" parent="MovingPlatform2" index="2"]
+playback_speed = 0.5
+anims/Loop = SubResource( 3 )
+anims/PingPong = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="MovingPlatform3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, 320 )
+
+[node name="Path2D" parent="MovingPlatform3" index="1"]
+curve = SubResource( 6 )
+
+[node name="AnimationPlayer" parent="MovingPlatform3" index="2"]
+playback_speed = 0.5
+
+[node name="Birch" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2656, 32 )
+
+[node name="Diamond" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2944, 0 )
+
+[node name="Obsidian" parent="." instance=ExtResource( 16 )]
+position = Vector2( 3464, 449 )
+
+[node name="Coin" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3464, 0 )
+
+[node name="Coin2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 3832, 0 )
+
+[node name="NextLevel" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4656, -32 )
+
+[node name="NextLevel2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4952, 344 )
+
+[connection signal="active" from="PlatformBox/Platform1" to="PlatformBox/DoorStatic" method="_on_Platform1_active"]
+[connection signal="body_entered" from="PlatformBox/Platform1" to="PlatformBox/Platform1" method="_on_Platform1_body_entered"]
+[connection signal="body_exited" from="PlatformBox/Platform1" to="PlatformBox/Platform1" method="_on_Platform1_body_exited"]
+[connection signal="not_active" from="PlatformBox/Platform1" to="PlatformBox/DoorStatic" method="_on_Platform1_not_active"]
+[connection signal="active" from="platformplayer/Platform" to="platformplayer/DoorStatic" method="_on_Platform_active"]
+[connection signal="body_entered" from="platformplayer/Platform" to="platformplayer/Platform" method="_on_Platform_body_entered"]
+[connection signal="body_exited" from="platformplayer/Platform" to="platformplayer/Platform" method="_on_Platform_body_exited"]
+[connection signal="not_active" from="platformplayer/Platform" to="platformplayer/DoorStatic" method="_on_Platform_not_active"]
+[connection signal="active" from="HorizontalDoor/Platform1" to="HorizontalDoor/Door_Horizontal" method="_on_Platform1_active"]
+[connection signal="active" from="HorizontalDoor/Platform1" to="HorizontalDoor/Door_Horizontal2" method="_on_Platform1_active"]
+[connection signal="active" from="HorizontalDoor/Platform1" to="HorizontalDoor/Door_Horizontal_Right" method="_on_Platform1_active"]
+[connection signal="active" from="HorizontalDoor/Platform1" to="HorizontalDoor/Door_Horizontal_Right2" method="_on_Platform1_active"]
+[connection signal="body_entered" from="HorizontalDoor/Platform1" to="HorizontalDoor/Platform1" method="_on_Platform1_body_entered"]
+[connection signal="body_exited" from="HorizontalDoor/Platform1" to="HorizontalDoor/Platform1" method="_on_Platform1_body_exited"]
+[connection signal="not_active" from="HorizontalDoor/Platform1" to="HorizontalDoor/Door_Horizontal" method="_on_Platform1_not_active"]
+[connection signal="not_active" from="HorizontalDoor/Platform1" to="HorizontalDoor/Door_Horizontal2" method="_on_Platform1_not_active"]
+[connection signal="not_active" from="HorizontalDoor/Platform1" to="HorizontalDoor/Door_Horizontal_Right" method="_on_Platform1_not_active"]
+[connection signal="not_active" from="HorizontalDoor/Platform1" to="HorizontalDoor/Door_Horizontal_Right2" method="_on_Platform1_not_active"]
+[connection signal="body_entered" from="fallzone" to="Player1" method="_on_fallzone_body_entered"]
+[connection signal="body_entered" from="fallzone" to="Player2" method="_on_fallzone_body_entered"]
+
+[editable path="MovingPlatform"]
+[editable path="MovingPlatform2"]
+[editable path="MovingPlatform3"]

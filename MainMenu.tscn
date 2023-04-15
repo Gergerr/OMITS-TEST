@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://LineEdit.gd" type="Script" id=1]
+[ext_resource path="res://TCM_____ (1).TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/background/Ornamen Web/ornamen-07.png" type="Texture" id=3]
+[ext_resource path="res://assets/STIMO.png" type="Texture" id=4]
+[ext_resource path="res://LOGO OMITS 15TH (1).png" type="Texture" id=5]
+[ext_resource path="res://ButtonPress.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 2251.0
+margin_bottom = 3391.0
+texture = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="username" type="LineEdit" parent="."]
+margin_left = 606.0
+margin_top = 291.0
+margin_right = 906.0
+margin_bottom = 315.0
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+caret_blink = true
+caret_blink_speed = 0.25
+script = ExtResource( 1 )
+
+[node name="jenjang" type="LineEdit" parent="."]
+margin_left = 603.0
+margin_top = 406.0
+margin_right = 903.0
+margin_bottom = 430.0
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+caret_blink = true
+caret_blink_speed = 0.25
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 414.0
+margin_top = 290.0
+margin_right = 580.0
+margin_bottom = 323.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "NAMA KETUA"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 411.0
+margin_top = 406.0
+margin_right = 529.0
+margin_bottom = 439.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "JENJANG"
+
+[node name="Button_Username" type="Button" parent="."]
+margin_left = 603.0
+margin_top = 534.0
+margin_right = 731.0
+margin_bottom = 567.0
+custom_fonts/font = SubResource( 2 )
+text = "LANJUT"
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 483.0
+margin_top = -2.0
+margin_right = 3435.0
+margin_bottom = 2811.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 323.0
+margin_top = 62.0
+margin_right = 3275.0
+margin_bottom = 2875.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 803.0
+margin_top = 62.0
+margin_right = 3755.0
+margin_bottom = 2875.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[connection signal="text_changed" from="username" to="username" method="_on_username_text_changed"]
+[connection signal="text_changed" from="jenjang" to="jenjang" method="_on_jenjang_text_changed"]
+[connection signal="pressed" from="Button_Username" to="Button_Username" method="_on_Button_Username_pressed"]
